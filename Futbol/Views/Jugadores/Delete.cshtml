@@ -1,0 +1,56 @@
+﻿@model Futbol.Models.Jugadores
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="page-header">
+	<h2>Delete</h2>
+</div>
+
+	<h3>Are you sure you want to delete this?</h3>
+	@using (Html.BeginForm()) {
+		<div>
+			<fieldset>
+				<legend>Jugadores</legend>
+				<br />
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.NOMBRE)</div>
+                <div class="span10">@Html.DisplayFor(model => model.NOMBRE)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.APELLIDOS)</div>
+                <div class="span10">@Html.DisplayFor(model => model.APELLIDOS)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.F_NACIMIENTO)</div>
+                <div class="span10">@Html.DisplayFor(model => model.F_NACIMIENTO)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.POSICION)</div>
+                <div class="span10">@Html.DisplayFor(model => model.POSICION)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.EQUIPO)</div>
+                <div class="span10">@Html.DisplayFor(model => model.EQUIPO)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.IMAGEN)</div>
+                <div class="span10">@Html.DisplayFor(model => model.IMAGEN)</div>
+            </div>
+
+			<div class="form-actions">
+				<input type="submit" class="btn btn-primary" value="Delete" />
+			</div>
+		</fieldset>
+		<br />
+	</div>
+	}
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>
+

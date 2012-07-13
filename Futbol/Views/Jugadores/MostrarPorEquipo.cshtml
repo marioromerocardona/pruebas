@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Futbol.Models.Jugadores>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page-header">
+	<h2>Listado de jugadores</h2>
+</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>
+						NOMBRE
+					</th>
+					<th>
+						APELLIDOS
+					</th>
+					<th>
+						FECHA DE NACIMIENTO
+					</th>
+					<th>
+						POSICION
+					</th>
+					<th>
+						EQUIPO
+					</th>
+					<th>
+						IMAGEN
+					</th>
+                    <th>
+                        OPERACIONES
+                    </th>
+				</tr>
+			</thead>
+			<tbody>
+
+@foreach (var item in Model) {
+				<tr>
+					<td>
+						@item.NOMBRE
+					</td>
+					<td>
+						@item.APELLIDOS
+					</td>
+					<td>
+						@String.Format("{0:d/M/yyyy}", item.F_NACIMIENTO)
+					</td>
+					<td>
+						@item.POSICION
+					</td>
+					<td>
+						@item.EQUIPOS.NOMBRE
+					</td>
+					<td>
+                        @if (item.IMAGEN != null)
+                        {
+                            <img class="GrowImage" src="../../Content/images/Jugadores/@item.IMAGEN" alt="@item.IMAGEN" width="50" height="50" />
+                        }
+                        else
+                        {
+                            <img class="GrowImage" src="../../Content/images/Jugadores/player.png" alt="player.png" width="50" height="50" />
+                        }
+					</td>
+                    <td>
+                        <a class="btn btn-primary" href="@Url.Action("Edit", new { id = item.ID })"><i class="icon-edit icon-white"></i> Editar</a>
+                        <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.ID })"><i class="icon-trash icon-white"></i> Borrar</a>
+					</td>
+			</tr>
+}
+		</tbody>
+	</table>
+
+    <p>
+		@Html.ActionLink("Crear un jugador", "Create")
+	</p>

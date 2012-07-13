@@ -1,0 +1,68 @@
+﻿@model Futbol.Models.Equipos
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="page-header">
+	<h2>Create</h2>
+</div>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Equipos</legend>
+        <div class="control-group">
+            @Html.LabelFor(model => model.NOMBRE)
+			<div class="controls">
+				@Html.EditorFor(model => model.NOMBRE)
+				@Html.ValidationMessageFor(model => model.NOMBRE)
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.ORIGEN)
+			<div class="controls">
+				@Html.EditorFor(model => model.ORIGEN)
+				@Html.ValidationMessageFor(model => model.ORIGEN)
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.PRESUPUESTO)
+			<div class="controls">
+				@Html.EditorFor(model => model.PRESUPUESTO)
+				@Html.ValidationMessageFor(model => model.PRESUPUESTO)
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.ABONADOS)
+			<div class="controls">
+				@Html.EditorFor(model => model.ABONADOS)
+				@Html.ValidationMessageFor(model => model.ABONADOS)
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.FUNDACION)
+			<div class="controls">
+				@Html.EditorFor(model => model.FUNDACION)
+				@Html.ValidationMessageFor(model => model.FUNDACION)
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<input type="submit" class="btn btn-primary" value="Create" />
+		</div>
+    </fieldset>
+
+    
+}
+
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>
+

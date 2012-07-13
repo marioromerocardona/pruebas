@@ -1,0 +1,51 @@
+﻿@model Futbol.Models.Equipos
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="page-header">
+	<h2>Delete</h2>
+</div>
+
+	<h3>Are you sure you want to delete this?</h3>
+	@using (Html.BeginForm()) {
+		<div>
+			<fieldset>
+				<legend>Equipos</legend>
+				<br />
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.NOMBRE)</div>
+                <div class="span10">@Html.DisplayFor(model => model.NOMBRE)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.ORIGEN)</div>
+                <div class="span10">@Html.DisplayFor(model => model.ORIGEN)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.PRESUPUESTO)</div>
+                <div class="span10">@Html.DisplayFor(model => model.PRESUPUESTO)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.ABONADOS)</div>
+                <div class="span10">@Html.DisplayFor(model => model.ABONADOS)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.FUNDACION)</div>
+                <div class="span10">@Html.DisplayFor(model => model.FUNDACION)</div>
+            </div>
+
+			<div class="form-actions">
+				<input type="submit" class="btn btn-primary" value="Delete" />
+			</div>
+		</fieldset>
+		<br />
+	</div>
+	}
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>
+

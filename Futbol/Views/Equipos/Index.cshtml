@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Futbol.Models.Equipos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page-header">
+	<h2>Equipos</h2>
+</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>
+						NOMBRE
+					</th>
+					<th>
+						ORIGEN
+					</th>
+					<th>
+						PRESUPUESTO
+					</th>
+					<th>
+						ABONADOS
+					</th>
+					<th>
+						FUNDACION
+					</th>
+                    <th>
+                        ACCIONES
+                    </th>
+				</tr>
+			</thead>
+			<tbody>
+
+@foreach (var item in Model) {
+				<tr>
+					<td>
+                        @Html.ActionLink(item.NOMBRE, "MostrarPorEquipo", "Jugadores", new {id = item.ID}, null)
+					</td>
+					<td>
+						@item.ORIGEN
+					</td>
+					<td>
+						@String.Format("{0:F0}", item.PRESUPUESTO)
+					</td>
+					<td>
+						@String.Format("{0:F0}", item.ABONADOS)
+					</td>
+					<td>
+						@String.Format("{0:d/M/yy}", item.FUNDACION)
+					</td>
+                    <td>
+                        <a class="btn btn-primary" href="@Url.Action("Edit", new { id = item.ID })"><i class="icon-edit icon-white"></i> Editar</a>
+                        <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.ID })"><i class="icon-trash icon-white"></i> Borrar</a>
+					</td>
+			</tr>
+}
+		</tbody>
+	</table>
+
+    <p>
+		@Html.ActionLink("Crear un equipo", "Create")
+	</p>
+

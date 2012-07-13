@@ -1,0 +1,46 @@
+﻿@model Futbol.Models.Equipos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-header">
+	<h2>Details</h2>
+</div>
+
+		<fieldset>
+			<legend>Equipos</legend>
+			<br />
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.NOMBRE)</div>
+                <div class="span10">@Html.DisplayFor(model => model.NOMBRE)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.ORIGEN)</div>
+                <div class="span10">@Html.DisplayFor(model => model.ORIGEN)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.PRESUPUESTO)</div>
+                <div class="span10">@Html.DisplayFor(model => model.PRESUPUESTO)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.ABONADOS)</div>
+                <div class="span10">@Html.DisplayFor(model => model.ABONADOS)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.FUNDACION)</div>
+                <div class="span10">@Html.DisplayFor(model => model.FUNDACION)</div>
+            </div>
+		</fieldset>
+		<br />
+	<p>
+		@Html.ActionLink("Editar", "Edit", new { id=Model.ID }) |
+		@Html.ActionLink("Volver al listado de equipos", "Index")
+	</p>
+</div>
+

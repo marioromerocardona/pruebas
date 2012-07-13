@@ -1,0 +1,51 @@
+﻿@model Futbol.Models.Jugadores
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-header">
+	<h2>Details</h2>
+</div>
+
+		<fieldset>
+			<legend>Jugadores</legend>
+			<br />
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.NOMBRE)</div>
+                <div class="span10">@Html.DisplayFor(model => model.NOMBRE)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.APELLIDOS)</div>
+                <div class="span10">@Html.DisplayFor(model => model.APELLIDOS)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.F_NACIMIENTO)</div>
+                <div class="span10">@Html.DisplayFor(model => model.F_NACIMIENTO)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.POSICION)</div>
+                <div class="span10">@Html.DisplayFor(model => model.POSICION)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.EQUIPO)</div>
+                <div class="span10">@Html.DisplayFor(model => model.EQUIPO)</div>
+            </div>
+
+            <div class="row">
+                <div class="span2">@Html.LabelFor(model => model.IMAGEN)</div>
+                <div class="span10">@Html.DisplayFor(model => model.IMAGEN)</div>
+            </div>
+		</fieldset>
+		<br />
+	<p>
+		@Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+		@Html.ActionLink("Back to List", "Index")
+	</p>
+</div>
+

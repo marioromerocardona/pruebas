@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Futbol.Models.Clasificacion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page-header">
+	<h2>Clasificación</h2>
+</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>
+						POSICION
+					</th>
+					<th>
+						EQUIPO
+					</th>
+					<th>
+						GOLES
+					</th>
+					<th>
+						PUNTOS
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+
+@foreach (var item in Model) {
+    if (item.EQUIPOS.NOMBRE.Equals("F.C.Barcelona"))
+    {
+		<tr>
+            <td class="green">
+				@String.Format("{0:F0}", item.POSICION)
+                <span class="icon-arrow-up"></span>
+			</td>
+			<td class="green">
+                @Html.ActionLink(item.EQUIPOS.NOMBRE, "MostrarPorEquipo", "Jugadores", new { id = item.EQUIPOS.ID }, null)
+			</td>
+			<td class="green">
+				@String.Format("{0:F0}", item.GOLES)
+			</td>
+			<td class="green">
+				@String.Format("{0:F0}", item.PUNTOS)
+			</td>
+		</tr>
+    }
+    else if (item.EQUIPOS.NOMBRE.Equals("R. Madrid"))
+    {
+		<tr>
+            <td class="red">
+				@String.Format("{0:F0}", item.POSICION)
+                <span class="icon-arrow-down"></span>
+			</td>
+			<td class="red">
+                @Html.ActionLink(item.EQUIPOS.NOMBRE, "MostrarPorEquipo", "Jugadores", new {id = item.EQUIPOS.ID}, null)
+			</td>
+			<td class="red">
+				@String.Format("{0:F0}", item.GOLES)
+			</td>
+			<td class="red">
+				@String.Format("{0:F0}", item.PUNTOS)
+			</td>
+		</tr>
+    }
+    else
+    {
+		<tr>
+            <td>
+				@String.Format("{0:F0}", item.POSICION)
+			</td>
+			<td>
+                @Html.ActionLink(item.EQUIPOS.NOMBRE, "MostrarPorEquipo", "Jugadores", new { id = item.EQUIPOS.ID }, null)
+			</td>
+			<td>
+				@String.Format("{0:F0}", item.GOLES)
+			</td>
+			<td>
+				@String.Format("{0:F0}", item.PUNTOS)
+			</td>
+		</tr>
+    }
+
+}
+		</tbody>
+	</table>
+
